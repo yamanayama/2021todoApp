@@ -1,7 +1,18 @@
 {
-  "todos": [
-    { "id": 1, "content": "今日の晩御飯はハンバーグ", "done": true },
-    { "id": 2, "content": "明日の晩御飯は餃子", "done": true },
-    { "id": 3, "content": "明後日はカレーライス", "done": true }
+  "todos": [{
+      "id": 1,
+      "content": "今日の晩御飯はハンバーグ",
+      "done": true
+    },
+    {
+      "id": 2,
+      "content": "明日の晩御飯は餃子",
+      "done": false
+    },
+    {
+      "id": 3,
+      "content": "明後日はカレーライス",
+      "done": true
+    }
   ]
 }

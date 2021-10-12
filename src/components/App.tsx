@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { TodoList } from "./TodoTitle";
 
 //{}一個分の型
 type Todo = {
@@ -31,11 +32,11 @@ export const App = () => {
   const compeleteList = todoList.filter((todo) => todo.done);
 
   return (
-    <>
+    <div>
       <h1>🧡TODO進捗管理🧡</h1>
       <textarea />
       <button type="button">追加</button>
-      <h2>未完了TODOリスト</h2>
+      <TodoList title="未完了TODOリスト" />
       <div>
         <ul>
           {inCompeleteList.map((todo: Todo) => {
@@ -50,7 +51,7 @@ export const App = () => {
         </ul>
       </div>
 
-      <h2>完了TODOリスト</h2>
+      <TodoList title="完了TODOリスト" />
       <div>
         <ul>
           {compeleteList.map((todo: Todo) => {
@@ -64,6 +65,6 @@ export const App = () => {
           })}
         </ul>
       </div>
-    </>
+    </div>
   );
 };

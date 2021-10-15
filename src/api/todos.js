@@ -8,6 +8,7 @@ export const getAllTodosData = async () => {
   return response.data;　// objectとして dataがかえってくる
 }
 
+//追加する
 //一つのtodoを返すので単数系
 export const addTodoData = async (todo) => {
   const response = await axios.post(todoDataUrl, todo);

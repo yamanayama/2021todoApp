@@ -1,28 +1,10 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import { TodoTitle } from "./TodoTitle";
 import { TodoList } from "./TodoList";
-
-//{}一個分の型
-type Todo = {
-  id: number;
-  content: string;
-  done: boolean;
-};
+import { useTodo } from "../hooks/useTodo";
 
 export const App = () => {
-  const todoDataUrl = "http://localhost:3100/todos";
-  const [todoList, setTodoList] = useState<Todo[]>([]); //空の配列を入れるよ Todoの要素を持った配列
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(todoDataUrl);
-      setTodoList(response.data); //dataの配列だけをとってくるよ
-    };
-    fetchData(); //↑10-13では定義しただけ　←14行目で定義した関数を実行している
-  }, []); //第2引数が空なので、1回しか実行されない
-  //回数は指定できない　useEffectは2回目以降、第2引数の値を監視
-
+  const { todoList } = useTodo();
   //未完了リスト
   const inCompeleteList = todoList.filter((todo) => !todo.done);
 

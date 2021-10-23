@@ -17,7 +17,7 @@ export const TodoList: FC<Props> = ({ todoList }) => {
     <ul>
       {todoList.map((todo: Todo) => {
         return (
-          <TodoItem todo={todo} />
+          <TodoItem key={todo.id} todo={todo} />
         );
       })}
     </ul>

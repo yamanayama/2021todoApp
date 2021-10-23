@@ -13,7 +13,7 @@ type Props = {
 
 export const TodoItem:FC<Props> = ({ todo }) => {
   return (
-    <li key={todo.id}>
+    <li>
       {todo.content}（{todo.done ? "完了" : "未完了"}）
     </li>
   )

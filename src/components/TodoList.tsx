@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { TodoItem } from "./TodoItem"
 
 //Propsで指定するためにTodoの配列のプロパティの型を指定
 type Todo = {
@@ -16,9 +17,7 @@ export const TodoList: FC<Props> = ({ todoList }) => {
     <ul>
       {todoList.map((todo: Todo) => {
         return (
-          <li key={todo.id}>
-            {todo.content}（{todo.done ? "完了" : "未完了"}）
-          </li>
+          <TodoItem todo={todo} />
         );
       })}
     </ul>

@@ -1,5 +1,6 @@
 import { FC } from "react";
 
+
 type Todo = {
   id: number;
   content: string;
@@ -9,12 +10,17 @@ type Todo = {
 type Props = {
   //一つしか渡さないので配列にしない
   todo: Todo;
+  toggleTodoListItemStatus: (id: number) => void;
 }
 
-export const TodoItem:FC<Props> = ({ todo }) => {
+export const TodoItem:FC<Props> = ({ todo, toggleTodoListItemStatus }) => {
+  const handleToggleTodoListItemStatus = () => {
+    toggleTodoListItemStatus(todo.id)
+  }
+  
   return (
     <li>
-      {todo.content}（{todo.done ? "完了" : "未完了"}）
+      {todo.content} <button type="button" onClick={handleToggleTodoListItemStatus}>{todo.done ? "未完了へ" : "完了へ"}</button>
     </li>
   )
 }

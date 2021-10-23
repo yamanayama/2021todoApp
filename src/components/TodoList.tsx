@@ -9,15 +9,18 @@ type Todo = {
 };
 
 type Props = {
-  todoList: Todo[]; // hoge[]　で配列
+  // hoge[]　で配列
+  todoList: Todo[]; 
+  //idを引数としてvoidと返り値とした型（関数）
+  toggleTodoListItemStatus: (id: number) => void;
 };
 
-export const TodoList: FC<Props> = ({ todoList }) => {
+export const TodoList: FC<Props> = ({ todoList, toggleTodoListItemStatus }) => {
   return (
     <ul>
       {todoList.map((todo: Todo) => {
         return (
-          <TodoItem key={todo.id} todo={todo} />
+          <TodoItem key={todo.id} todo={todo} toggleTodoListItemStatus={toggleTodoListItemStatus} />
         );
       })}
     </ul>

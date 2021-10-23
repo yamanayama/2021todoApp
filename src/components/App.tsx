@@ -5,7 +5,7 @@ import { useTodo } from "../hooks/useTodo";
 import { TodoAdd } from "./TodoAdd";
 
 export const App = () => {
-  const { todoList, addTodoListItem } = useTodo();
+  const { toggleTodoListItemStatus, todoList, addTodoListItem } = useTodo();
   //未完了リスト
   const inCompeleteList = todoList.filter((todo) => !todo.done);
 
@@ -20,10 +20,10 @@ export const App = () => {
       <h1>🧡TODO進捗管理🧡</h1>
       <TodoAdd addTodoListItem={addTodoListItem}/>
       <TodoTitle title="未完了TODOリスト" />
-      <TodoList todoList={inCompeleteList} />
+      <TodoList todoList={inCompeleteList} toggleTodoListItemStatus={toggleTodoListItemStatus}/>
 
       <TodoTitle title="完了TODOリスト" />
-      <TodoList todoList={compeleteList} />
+      <TodoList todoList={compeleteList} toggleTodoListItemStatus={toggleTodoListItemStatus}/>
     </div>
   );
 };

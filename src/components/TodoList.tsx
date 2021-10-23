@@ -13,14 +13,15 @@ type Props = {
   todoList: Todo[]; 
   //idを引数としてvoidと返り値とした型（関数）
   toggleTodoListItemStatus: (id: number) => void;
+  deleteTodoListItem: (id: number) => void;
 };
 
-export const TodoList: FC<Props> = ({ todoList, toggleTodoListItemStatus }) => {
+export const TodoList: FC<Props> = ({ todoList, toggleTodoListItemStatus, deleteTodoListItem }) => {
   return (
     <ul>
       {todoList.map((todo: Todo) => {
         return (
-          <TodoItem key={todo.id} todo={todo} toggleTodoListItemStatus={toggleTodoListItemStatus} />
+          <TodoItem key={todo.id} todo={todo} toggleTodoListItemStatus={toggleTodoListItemStatus} deleteTodoListItem={deleteTodoListItem}/>
         );
       })}
     </ul>

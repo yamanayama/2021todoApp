@@ -59,5 +59,14 @@ export const useTodo = () => {
     });
   };
 
-  return { toggleTodoListItemStatus, addTodoListItem, todoList };
+  //TODOを消す
+  const deleteTodoListItem = (id: number) => {
+    deleteTodoData(id).then((deleteListItemId) => {
+      //todoListの中からdeleteTodoListItemを除いたTODOLISTをつくる
+      const newTodoList = todoList.filter((todo) => todo.id !== deleteListItemId);
+      setTodoList(newTodoList);
+    })
+  } 
+
+  return { deleteTodoListItem, toggleTodoListItemStatus, addTodoListItem, todoList };
 };
